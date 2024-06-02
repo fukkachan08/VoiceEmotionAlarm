@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SuccessView: View {
     @Environment(\.presentationMode) var presentationMode
+    var onDismiss: () -> Void
 
     var body: some View {
         VStack {
@@ -17,6 +18,7 @@ struct SuccessView: View {
             Spacer()
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
+                onDismiss()
             }) {
                 Text("最初の画面に戻る")
                     .padding()
